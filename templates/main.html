@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Strength Analysis</title>
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <h3 class="text-center" style="padding:15px">PASSWORD STRENGTH ANALYSIS</h3>
+
+    
+        <div class="col-md-8" style="text-align:center;margin: 0 auto;">
+            <form method="POST">
+                <input type="text" class="form-control" placeholder="Enter Password" name="password" value="{{ request.form.password }}"
+                    required>
+                <div class="button-group" style="margin-top:15px;">
+                    <button type="submit" name="submit" class="btn btn-primary">Check</button>
+                </div>
+            </form>
+        </div>
+    
+
+
+    
+        <div class="col-md-8" style="margin: 0 auto; margin-top:25px;">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Algorithm</th>
+                        <th scope="col">Strength</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Decision Tree</td>
+                        {% if (DecisionTree == 0) %}
+                        <td>Weak</td>
+                        {% endif %}
+                        {% if (DecisionTree == 1) %}
+                        <td>Medium</td>
+                        {% endif %}
+                        {% if (DecisionTree == 2) %}
+                        <td>Strong</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        {% if (LogReg == 0) %}
+                        <td>Weak</td>
+                        {% endif %}
+                        {% if (LogReg == 1) %}
+                        <td>Medium</td>
+                        {% endif %}
+                        {% if (LogReg == 2) %}
+                        <td>Strong</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Naive Bayes</td>
+                        {% if (NaiveBayes == 0) %}
+                        <td>Weak</td>
+                        {% endif %}
+                        {% if (NaiveBayes == 1) %}
+                        <td>Medium</td>
+                        {% endif %}
+                        {% if (NaiveBayes == 2) %}
+                        <td>Strong</td>
+                        {% endif %}
+                    </tr>
+
+                    <tr>
+                        <td>Random Forest</td>
+                        {% if (RandomForest == 0) %}
+                        <td>Weak</td>
+                        {% endif %}
+                        {% if (RandomForest == 1) %}
+                        <td>Medium</td>
+                        {% endif %}
+                        {% if (RandomForest == 2) %}
+                        <td>Strong</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Neural Network</td>
+                        {% if (NeuralNetwork == 0) %}
+                        <td>Weak</td>
+                        {% endif %}
+                        {% if (NeuralNetwork == 1) %}
+                        <td>Medium</td>
+                        {% endif %}
+                        {% if (NeuralNetwork == 2) %}
+                        <td>Strong</td>
+                        {% endif %}
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    
+
+</body>
+
+</html>
