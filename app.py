@@ -1,7 +1,10 @@
 from flask import Flask, render_template, flash, request
 import joblib as joblib
+import os
 
 app = Flask(__name__)
+port = int(os.environ.get('PORT', 5000))
+app.config['SECRET_KEY'] = 'abc123@567$#'
 
 @app.route('/')
 def homepage():
@@ -20,7 +23,6 @@ def mainpage():
     print("Decision Tree Loaded")
     LogisticRegression_Model = joblib.load('LogisticRegression_Model.joblib')
     NaiveBayes_Model = joblib.load('NaiveBayes_Model.joblib')
-    # RandomForest_Model = joblib.load('RandomForest_Model.joblib')
     NeuralNetwork_Model = joblib.load('NeuralNetwork_Model.joblib')
     
     Password = [enteredPassword]
@@ -29,16 +31,14 @@ def mainpage():
     DecisionTree_Test = DecisionTree_Model.predict(Password)
     LogisticRegression_Test = LogisticRegression_Model.predict(Password)
     NaiveBayes_Test = NaiveBayes_Model.predict(Password)
-    # RandomForest_Test = RandomForest_Model.predict(Password)
     NeuralNetwork_Test = NeuralNetwork_Model.predict(Password)
     
 
     return render_template("main.html", DecisionTree=DecisionTree_Test,
                                         LogReg=LogisticRegression_Test, 
                                         NaiveBayes=NaiveBayes_Test,
-                                        RandomForest=0,
                                         NeuralNetwork=NeuralNetwork_Test
                                         )
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=port)
