@@ -15,14 +15,14 @@ The models used are:
 
 The web application is live on http://exo.owaspvit.com/
 
-## Installation
+## Installation !
 
 * Clone the project into your PC:
 ```
 git clone https://github.com/mayanktolani19/PasswordStrengthAnalysis.git
 ```
 
-* Install requirements.txt;
+* Install requirements.txt 
 ```
 pip install -r requirements.txt
 ```
