@@ -6,7 +6,7 @@ Analyze the strength of your passwords in one click!
 
 To ensure correctness of our results, we output the strength of the password using four different Machine Learning models.
 
-The models used are:
+The models used are :-
 * Logistic Regression
 * Naive Bayes
 * Decision Tree
